@@ -6,6 +6,7 @@ return {
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files with telescope" },
 		{ "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Search within files with telescope" },
+		{ "<leader>fr", "<cmd>Telescope lsp_references<cr>", desc = "Find references" },
 		{
 			"<leader>fW",
 			"<cmd>Telescope live_grep find_command=rg,--hidden<cr>",
