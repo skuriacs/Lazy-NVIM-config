@@ -1,5 +1,6 @@
 -- Instal lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -34,7 +35,6 @@ require("mason-lspconfig").setup_handlers({
 		require("lspconfig")[server_name].setup({})
 	end,
 })
-local fb_actions = require("telescope._extensions.file_browser.actions")
 require("telescope").setup({
 	extensions = {
 		file_browser = {
@@ -97,4 +97,58 @@ cmp.setup.cmdline(":", {
 	}),
 })
 require("mini.pairs").setup()
+-- Utilities for creating configurations
+local util = require("formatter.util")
+
+-- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
+require("formatter").setup({
+	logging = true,
+	log_level = vim.log.levels.WARN,
+	-- All formatter configurations are opt-in
+	filetype = {
+		-- Formatter configurations for filetype "lua" go here
+		-- and will be executed in order
+		lua = {
+			-- "formatter.filetypes.lua" defines default configurations for the
+			-- "lua" filetype
+			require("formatter.filetypes.lua").stylua,
+			-- You can also define your own configuration
+			function()
+				return {
+					exe = "stylua",
+					args = {
+						"--search-parent-directories",
+						"--stdin-filepath",
+						util.escape_path(util.get_current_buffer_file_path()),
+						"--",
+						"-",
+					},
+					stdin = true,
+				}
+			end,
+		},
+		rust = {
+			function()
+				return {
+					exe = "rustfmt",
+					args = { "--emit=stdout" },
+					stdin = true,
+				}
+			end,
+		},
+		python = {
+			function()
+				return {
+					exe = "black",
+				}
+			end,
+		},
+	},
+})
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = "*",
+	callback = function()
+		vim.cmd([[FormatWriteLock]])
+	end,
+})
 vim.cmd("colorscheme rose-pine")
