@@ -25,6 +25,7 @@ vim.opt.colorcolumn = "100"
 -- Keymappings
 vim.keymap.set("n", "<C-s>", "<cmd>w<cr>")
 vim.keymap.set("n", "<leader><leader>", "<C-6>")
+vim.keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.buf.hover()<cr>")
 
 -- Load up settings from plugins folder
 require("lazy").setup("plugins")
