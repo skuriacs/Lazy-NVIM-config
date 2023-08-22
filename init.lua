@@ -144,6 +144,14 @@ require("formatter").setup({
 				}
 			end,
 		},
+		cpp = {
+			function()
+				return {
+					exe = "clang-format",
+					args = { "-i" },
+				}
+			end,
+		},
 	},
 })
 vim.api.nvim_create_autocmd("BufWritePost", {
@@ -152,4 +160,12 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 		vim.cmd([[FormatWriteLock]])
 	end,
 })
+require("nvim-treesitter.install").compilers = { "clang" }
+require("nvim-treesitter.configs").setup({
+	auto_install = true,
+	highlight = {
+		enable = true,
+	},
+})
+
 vim.cmd("colorscheme rose-pine")
