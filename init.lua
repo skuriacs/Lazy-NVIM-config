@@ -21,6 +21,8 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamed"
 vim.opt.colorcolumn = "100"
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
 
 -- Keymappings
 vim.keymap.set("n", "<C-s>", "<cmd>w<cr>")
