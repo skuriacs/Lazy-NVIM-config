@@ -16,4 +16,8 @@ return {
 			desc = "Search within files + hidden with telescope",
 		},
 	},
+	opts = function()
+		require("telescope").load_extension("file_browser")
+		return {}
+	end,
 }
