@@ -28,6 +28,9 @@ vim.opt.ignorecase = true
 vim.keymap.set("n", "<C-s>", "<cmd>w<cr>")
 vim.keymap.set("n", "<leader><leader>", "<C-6>")
 vim.keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.buf.hover()<cr>")
+vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+vim.keymap.set("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<cr>")
+vim.keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 
 -- Load up settings from plugins folder
 require("lazy").setup("plugins")
