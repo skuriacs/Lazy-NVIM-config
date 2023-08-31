@@ -26,6 +26,10 @@ vim.opt.ignorecase = true
 
 -- Keymappings
 vim.keymap.set("n", "<C-s>", "<cmd>w<cr>")
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
+vim.keymap.set("n", "p", "pzz")
+vim.keymap.set("n", "P", "Pzz")
 vim.keymap.set("n", "<leader><leader>", "<C-6>")
 vim.keymap.set("n", "<leader>h", "<cmd>lua vim.lsp.buf.hover()<cr>")
 vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>")
