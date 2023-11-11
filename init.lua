@@ -48,6 +48,13 @@ require("mason-lspconfig").setup_handlers({
 require("mini.pairs").setup()
 -- Utilities for creating configurations
 require("nvim-treesitter.install").compilers = { "clang" }
+require("telescope").setup({
+	extensions = {
+		file_browser = {
+			hijack_netrw = true,
+		},
+	},
+})
 require("nvim-treesitter.configs").setup({
 	auto_install = true,
 	highlight = {
@@ -55,4 +62,5 @@ require("nvim-treesitter.configs").setup({
 	},
 })
 
+require("telescope").load_extension("file_browser")
 vim.cmd("colorscheme rose-pine")
