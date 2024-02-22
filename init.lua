@@ -45,6 +45,13 @@ require("mason-lspconfig").setup_handlers({
 		require("lspconfig")[server_name].setup({})
 	end,
 })
+require("lspconfig").gopls.setup({
+	settings = {
+		gopls = {
+			gofumpt = true,
+		},
+	},
+})
 require("mini.pairs").setup()
 -- Utilities for creating configurations
 require("nvim-treesitter.install").compilers = { "clang" }
