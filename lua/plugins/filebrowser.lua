@@ -5,7 +5,7 @@ return {
 	keys = {
 		{
 			"<leader>fb",
-			"<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>",
+			"<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr> ",
 			desc = "Open up filebrowse telescope extension",
 		},
 	},

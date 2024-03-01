@@ -55,19 +55,11 @@ require("lspconfig").gopls.setup({
 require("mini.pairs").setup()
 -- Utilities for creating configurations
 require("nvim-treesitter.install").compilers = { "clang" }
-require("telescope").setup({
-	extensions = {
-		file_browser = {
-			hijack_netrw = true,
-		},
-	},
-})
 require("nvim-treesitter.configs").setup({
 	auto_install = true,
 	highlight = {
 		enable = true,
 	},
 })
-
 require("telescope").load_extension("file_browser")
 vim.cmd("colorscheme kanagawa-wave")
