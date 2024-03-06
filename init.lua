@@ -63,3 +63,4 @@ require("nvim-treesitter.configs").setup({
 })
 require("telescope").load_extension("file_browser")
 vim.cmd("colorscheme kanagawa-wave")
+vim.schedule(dynamic_project_files)
