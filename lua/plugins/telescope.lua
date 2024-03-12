@@ -14,9 +14,9 @@ return {
 	tag = "0.1.2",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	keys = {
-		{ "<leader>ff",        "<cmd>lua dynamic_project_files()<cr>", desc = "Find files with telescope" },
-		{ "<leader>fF",        "<cmd>Telescope find_files<cr>",        desc = "Find files with telescope" },
-		{ "<leader>fw",        "<cmd>Telescope live_grep<cr>",         desc = "Search within files with telescope" },
+		{ "<leader>ff",        "<cmd>lua dynamic_project_files()<cr>", desc = "Find files with telescope(dynamic)" },
+		{ "<leader>fF",        "<cmd>Telescope find_files<cr>",        desc = "Find files with telescope(all files)" },
+		{ "<leader>fw",        "<cmd>Telescope live_grep<cr>",         desc = "Grep files telescope" },
 		{ "<leader>fr",        "<cmd>Telescope lsp_references<cr>",    desc = "Find references" },
 		{ "<leader>fp",        "<cmd>Telescope pickers<cr>",           desc = "Show pickers" },
 		{ "<leader>fl",        "<cmd>Telescope resume<cr>",            desc = "Show last serach" },
